@@ -160,55 +160,9 @@ See the `examples/` directory:
 
 ## Compiler Architecture
 
-```
-AlgoSpeak Source (.alg)
-        │
-        ▼
-   ┌─────────┐
-   │  Lexer   │  → Token stream
-   └────┬─────┘
-        ▼
-   ┌─────────┐
-   │  Parser  │  → Abstract Syntax Tree
-   └────┬─────┘
-        ▼
-   ┌──────────────┐
-   │  Semantic     │  → Validated AST
-   │  Analysis     │     (checks variables, types, arity)
-   └────┬─────────┘
-        ▼
-   ┌──────────────┐
-   │  AlgoIR       │  → IR instruction stream
-   │  Lowering     │
-   └────┬─────────┘
-        ▼
-   ┌──────────────┐
-   │  Optimizer    │  → Optimized IR
-   │               │     (constant folding, DCE)
-   └────┬─────────┘
-        ▼
-   ┌──────────────┐
-   │  Code Gen     │  → NASM x86-64 assembly
-   └────┬─────────┘
-        ▼
-   program.asm
-```
+<img width="2222" height="626" alt="Screenshot From 2026-04-14 02-50-00" src="https://github.com/user-attachments/assets/33eea7b7-8229-4edd-90f5-2a80bd65ec70" />
 
-### Source Files
 
-```
-src/
-├── main.rs       — CLI entry point (build / run / repl)
-├── token.rs      — Token type definitions
-├── lexer.rs      — Tokenizer / scanner
-├── ast.rs        — AST node definitions
-├── parser.rs     — Recursive descent parser
-├── semantic.rs   — Semantic analysis & symbol table
-├── ir.rs         — Intermediate representation & lowering
-├── optimizer.rs  — IR optimisation passes
-├── codegen.rs    — x86-64 NASM code generator
-└── repl.rs       — Interactive REPL
-```
 
 ## Safety Features
 
